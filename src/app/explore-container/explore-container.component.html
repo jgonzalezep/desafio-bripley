@@ -1,4 +1,10 @@
 <div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <strong><span [innerHTML]="ip"></span></strong>
+  <p>
+    <span [innerHTML]="city2"></span>
+    <span> / Min: </span>
+    <span [innerHTML]="min"></span>
+    <span> - Max: </span>
+    <span [innerHTML]="max"></span>
+  </p>
 </div>

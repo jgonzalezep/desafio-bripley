@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Sanitizer } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-explore-container',
@@ -8,8 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ExploreContainerComponent implements OnInit {
   @Input() name: string;
 
-  constructor() { }
+  constructor(private sanitized: DomSanitizer) {}
+
+  ip = this.sanitized.bypassSecurityTrustHtml(localStorage.getItem('ip'));
+  city2 = this.sanitized.bypassSecurityTrustHtml(localStorage.getItem('city'));
+  min = this.sanitized.bypassSecurityTrustHtml(localStorage.getItem('min'));
+  max = this.sanitized.bypassSecurityTrustHtml(localStorage.getItem('max'));
 
   ngOnInit() {}
-
 }
